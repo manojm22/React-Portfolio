@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import Capture from "./Capture.JPG";
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -19,7 +19,6 @@ import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.svg";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -31,7 +30,7 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
 export {
-  logo,
+  Capture,
   backend,
   creator,
   mobile,
@@ -51,7 +50,6 @@ export {
   redux,
   tailwind,
   typescript,
-  threejs,
   meta,
   shopify,
   starbucks,
