@@ -1,55 +1,97 @@
 import React, { useEffect, useState } from "react";
 import { testimonials as FeedbackfromDB } from "../constants";
+import { motion } from "framer-motion";
+import Slider from "react-slick";
+import { styles } from "../style";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { fadeIn, textVariant } from "../utils/motion";
+import "../index.css"; // Ensure this path is correct based on your project structure
 import Wrapper from "../hoc";
+import Popup from "./Popup";
 const Feedbacks = () => {
-  const [feedback, setFeedback] = useState([]);
-
-  const handleScroll = () => {
-    const scrollpos = window.scrollY;
-    const slider = document.querySelector(".slider");
-    const initialTransform = `translate3d(-50%, -50%,0) rotateX(0deg) rotateY(-25deg) rotateZ(-120deg)`;
-    const zoffset = scrollpos * 0.5;
-    slider.style.transform = `${initialTransform} translateZ(${zoffset}px)`;
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow:
+      window.innerWidth < 1000 ? (window.innerWidth < 768 ? 1 : 2) : 3,
+    slidesToScroll: 1,
+    autoplay: false,
+    speed: 1000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
   };
 
-  const handlemouseover = (e) => {
-    e.currentTarget.style.left = "15%";
-    e.currentTarget.style.background = "#000000";
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
+  const handleclick = (d) => {
+    setShowPopup(true);
+    setSelectedTestimonial(d);
   };
 
-  const handlemouseout = (e) => {
-    e.currentTarget.style.background = "none";
-    e.currentTarget.style.left = "0%";
+  const onmousehover = (e) => {
+    e.target.autoplay = false;
   };
-  useEffect(() => {
-    const newfeedbacks = FeedbackfromDB.map((feedback, index) => ({
-      id: index + 1,
-      name: feedback.name,
-      feedback: feedback.testimonial,
-      image: feedback.image,
-    }));
-    setFeedback(newfeedbacks);
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
-    <div>
-      <div>
-        {feedback.map((item) => (
-          <div
-            key={item.id}
-            className=""
-            onMouseOver={handlemouseover}
-            onMouseOut={handlemouseout}
-          >
-            <img src={item.image} alt={item.name} className="feedback-image" />
-            <h3 className="feedback-name">{item.name}</h3>
-            <p className="feedback-text">{item.feedback}</p>
-          </div>
-        ))}
+    <div className="mt-12 bg-black-100 rounded-[20px]">
+      <div className="w-3/4 m-auto">
+        <motion.div variants={textVariant()} className="pt-10">
+          <p className={styles.sectionSubText}>What others say</p>
+          <h2 className={styles.sectionHeadText}>Testimonials.</h2>
+        </motion.div>
+        <div className="mt-20">
+          <Slider {...settings} onmouseHover={onmousehover}>
+            {FeedbackfromDB.map((d) => (
+              <motion.div
+                variants={textVariant()}
+                key={d.name}
+                className="bg-white mt-20 mb-20 h-[500px] text-black rounded-xl transform transition-transform duration-300 hover:scale-105"
+              >
+                <div className=" h-56 rounded-t-xl bg-gradient-to-r from-green-500 to-blue-500 p-4 flex items-center justify-center">
+                  <img
+                    src={d.image}
+                    alt={d.name}
+                    className="w-20 h-20 rounded-full"
+                  />
+                </div>
+                <motion.div
+                  variants={textVariant()}
+                  className="flex flex-col justify-center items-center p-4 gap-4"
+                >
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold limitline-heading">
+                    {d.name}
+                  </h3>
+                  <motion.div
+                    variants={textVariant()}
+                    className="text-xs sm:text-sm md:text-base text-gray-500 limitline-heading "
+                  >
+                    {d.designation} at {d.company}
+                  </motion.div>
+                  <motion.p //direction, type, delay, duration
+                    className="mt-4 text-secondary 
+                  text-sm sm:text-base md:text-m max-w-3xl 
+                  leading-[26px] sm:leading-[30px] limitline "
+                  >
+                    {d.testimonial}
+                  </motion.p>
+
+                  <button
+                    className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition duration-300"
+                    onClick={() => handleclick(d)}
+                  >
+                    Read More
+                  </button>
+                </motion.div>
+              </motion.div>
+            ))}
+          </Slider>
+          {showPopup && selectedTestimonial && (
+            <Popup
+              testimonial={selectedTestimonial}
+              onClose={() => setShowPopup(false)}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

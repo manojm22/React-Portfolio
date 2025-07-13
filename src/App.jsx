@@ -4,10 +4,8 @@ import {
   About,
   Contact,
   Experience,
-  Works,
   Feedbacks,
   Hero,
-  Tech,
   StarsCanvas,
   Navbar,
 } from "./components";
@@ -22,8 +20,6 @@ export default function App() {
         </div>
         <About />
         <Experience />
-        <Tech />
-        <Works />
         <Feedbacks />
         <div className="relative z-0">
           <Contact />
