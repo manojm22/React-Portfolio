@@ -112,7 +112,7 @@ const technologies = [
     icon: docker,
   },
 ];
-
+ 
 const experiences = [
   {
     title: "React.js Developer",

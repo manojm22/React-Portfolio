@@ -5,6 +5,7 @@ import { styles } from "../style";
 import Earth from "./canvas/Earth";
 import { slideIn } from "../utils/motion";
 import emailjs from "@emailjs/browser";
+import { testimonials } from "../constants";
 
 const Contact = () => {
   const [form, setForm] = useState({
