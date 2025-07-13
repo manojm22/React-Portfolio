@@ -60,7 +60,7 @@ const Contact = () => {
         <motion.p className={styles.sectionSubText}>
           This goes to feedback section
         </motion.p>
-        <h3 className={styles.sectionHeadText}>Feedback.</h3>
+        <h3 className={styles.sectionHeadText}>Feedback</h3>
         <form
           ref={formRef}
           onSubmit={console.log("submit")}
