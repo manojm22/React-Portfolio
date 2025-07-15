@@ -5,20 +5,35 @@ import { styles } from "../style";
 import Earth from "./canvas/Earth";
 import { slideIn } from "../utils/motion";
 import emailjs from "@emailjs/browser";
-import { testimonials } from "../constants";
-
+import Swal from "sweetalert2";
+import axios from "axios";
 const Contact = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  const [feedbackform, setFeedbackorm] = useState({
+    name: "",
+    Designation: "",
+    Company: "",
+    Comment: "",
+  });
+
   const [loading, setLoading] = useState(false);
+  const [loadingfeedback, setLoadingfeedback] = useState(false);
   const formRef = useRef();
+  const formFeedRef = useRef();
 
   const handlechange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+  };
+
+  const handlefeedbackchange = (e) => {
+    const { name, value } = e.target;
+    setFeedbackorm({ ...feedbackform, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,6 +63,38 @@ const Contact = () => {
         alert("Something went wrong. Please try again later.");
       });
   };
+
+  const handleSubmitapi = (e) => {
+    e.preventDefault();
+    setLoadingfeedback(true);
+
+    axios
+      .post("https://manoj-portfolio-node.onrender.com/api/feedback", {
+        Name: feedbackform.name,
+        Designation: feedbackform.Designation,
+        Company: feedbackform.Company,
+        Comment: feedbackform.Comment,
+      })
+      .then(() => {
+        setFeedbackorm({ name: "", Designation: "", Company: "", Comment: "" });
+        Swal.fire({
+          title: "Success",
+          text: "Thank you for your feedback. It will be reflected soon!",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          window.history.replaceState(null, "", "/");
+          window.location.reload();
+          window.scrollTo(0, 0);
+          setLoadingfeedback(false);
+        });
+      })
+      .catch((error) => {
+        setLoadingfeedback(false);
+        console.error("Error sending email:", error);
+        alert("Something went wrong. Please try again later.");
+      });
+  };
   return (
     <div
       className="xl:mt-12 xl:flex-row
@@ -60,19 +107,20 @@ const Contact = () => {
         <motion.p className={styles.sectionSubText}>
           This goes to feedback section
         </motion.p>
-        <h3 className={styles.sectionHeadText}>Feedback</h3>
+        <h3 className={styles.sectionHeadText}>Feedback!</h3>
         <form
-          ref={formRef}
-          onSubmit={console.log("submit")}
+          ref={formFeedRef}
+          onSubmit={handleSubmitapi}
           className="mt-12 flex flex-col gap-8"
         >
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
             <input
               type="text"
+              required="true"
               name="name"
-              value={form.name}
-              onChange={handlechange}
+              value={feedbackform.name}
+              onChange={handlefeedbackchange}
               placeholder="What's your name?"
               className="bg-tertiary py-4 px-6 
               placeholder:text-secondary text-white
@@ -84,10 +132,11 @@ const Contact = () => {
               Your Designation
             </span>
             <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handlechange}
+              required="true"
+              type="Designation"
+              name="Designation"
+              value={feedbackform.Designation}
+              onChange={handlefeedbackchange}
               placeholder="What's your Designation?"
               className="bg-tertiary py-4 px-6 
               placeholder:text-secondary text-white
@@ -95,12 +144,27 @@ const Contact = () => {
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Feedback</span>
+            <span className="text-white font-medium mb-4">Your Company</span>
+            <input
+              required="true"
+              type="Company"
+              name="Company"
+              value={feedbackform.Company}
+              onChange={handlefeedbackchange}
+              placeholder="What's your Designation?"
+              className="bg-tertiary py-4 px-6 
+              placeholder:text-secondary text-white
+              rounded-lg outline-none border-none font-medium"
+            />
+          </label>
+          <label className="flex flex-col">
+            <span className="text-white font-medium mb-4">Your Comment</span>
             <textarea
+              required="true"
               rows="7"
-              name="message"
-              value={form.message}
-              onChange={handlechange}
+              name="Comment"
+              value={feedbackform.Comment}
+              onChange={handlefeedbackchange}
               placeholder="What do you want to say about my page?"
               className="bg-tertiary py-4 px-6 
               placeholder:text-secondary text-white
@@ -113,7 +177,7 @@ const Contact = () => {
             outline-none w-fit text-white font-bold
              shadow-md shadow-primary rounded-xl"
           >
-            {loading ? "Sending..." : "Send"}
+            {loadingfeedback ? "Sending..." : "Send"}
           </button>
         </form>
       </motion.div>
@@ -122,7 +186,7 @@ const Contact = () => {
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <h3 className={styles.sectionHeadText}>Contact!</h3>
         <form
           ref={formRef}
           onSubmit={handleSubmit}
@@ -131,6 +195,7 @@ const Contact = () => {
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
             <input
+              required="true"
               type="text"
               name="name"
               value={form.name}
@@ -144,6 +209,7 @@ const Contact = () => {
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Email</span>
             <input
+              required="true"
               type="email"
               name="email"
               value={form.email}
@@ -157,6 +223,7 @@ const Contact = () => {
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Message</span>
             <textarea
+              required="true"
               rows="7"
               name="message"
               value={form.message}

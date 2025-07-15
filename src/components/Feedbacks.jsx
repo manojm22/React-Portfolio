@@ -54,7 +54,6 @@ const Feedbacks = () => {
       }
     };
     fetchTestimonials();
-    console.log("FeedbackfromDB", FeedbackfromDB);
   }, []);
 
   return (

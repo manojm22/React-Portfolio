@@ -116,7 +116,7 @@ const technologies = [
 const experiences = [
   {
     title: "React.js Developer",
-    company_name: "Starbucks",
+    Company_name: "Starbucks",
     icon: starbucks,
     iconBg: "#383E56",
     date: "March 2020 - April 2021",
@@ -129,7 +129,7 @@ const experiences = [
   },
   {
     title: "React Native Developer",
-    company_name: "Tesla",
+    Company_name: "Tesla",
     icon: tesla,
     iconBg: "#E6DEDD",
     date: "Jan 2021 - Feb 2022",
@@ -142,7 +142,7 @@ const experiences = [
   },
   {
     title: "Web Developer",
-    company_name: "Shopify",
+    Company_name: "Shopify",
     icon: shopify,
     iconBg: "#383E56",
     date: "Jan 2022 - Jan 2023",
@@ -155,7 +155,7 @@ const experiences = [
   },
   {
     title: "Full stack Developer",
-    company_name: "Meta",
+    Company_name: "Meta",
     icon: meta,
     iconBg: "#E6DEDD",
     date: "Jan 2023 - Present",
@@ -170,75 +170,75 @@ const experiences = [
 
 const testimonials = [
   {
-    testimonial:
+    Comment:
       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
     name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
+    Designation: "CFO",
+    Company: "Acme Co",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
-    testimonial:
+    Comment:
       "I've never met a web developer who truly cares about their clients' success like Rick does.",
     name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
+    Designation: "COO",
+    Company: "DEF Corp",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
-    testimonial:
+    Comment:
       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+    Designation: "CTO",
+    Company: "456 Enterprises",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
   {
-    testimonial:
+    Comment:
       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+    Designation: "CTO",
+    Company: "456 Enterprises",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
   {
-    testimonial:
+    Comment:
       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+    Designation: "CTO",
+    Company: "456 Enterprises",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
   {
-    testimonial:
+    Comment:
       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+    Designation: "CTO",
+    Company: "456 Enterprises",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
   {
-    testimonial:
+    Comment:
       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+    Designation: "CTO",
+    Company: "456 Enterprises",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
   {
-    testimonial:
+    Comment:
       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+    Designation: "CTO",
+    Company: "456 Enterprises",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
   {
-    testimonial:
+    Comment:
       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+    Designation: "CTO",
+    Company: "456 Enterprises",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
