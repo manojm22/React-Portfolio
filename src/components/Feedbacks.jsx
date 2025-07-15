@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { testimonials as FeedbackfromDB } from "../constants";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import { styles } from "../style";
@@ -9,6 +8,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import "../index.css"; // Ensure this path is correct based on your project structure
 import Wrapper from "../hoc";
 import Popup from "./Popup";
+import axios from "axios";
 const Feedbacks = () => {
   const settings = {
     dots: true,
@@ -22,6 +22,8 @@ const Feedbacks = () => {
     cssEase: "linear",
   };
 
+  const [FeedbackfromDB, setFeedbackfromDB] = useState([]);
+
   const [showPopup, setShowPopup] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] = useState(null);
   const handleclick = (d) => {
@@ -32,6 +34,29 @@ const Feedbacks = () => {
   const onmousehover = (e) => {
     e.target.autoplay = false;
   };
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await axios.get(
+          "https://manoj-portfolio-node.onrender.com/api/feedback"
+        );
+        const data = response.data;
+        if (data) {
+          const testimonialsArray = Object.keys(data).map((key) => ({
+            ...data[key],
+            id: key,
+          }));
+          setFeedbackfromDB(testimonialsArray);
+        }
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+      }
+    };
+    fetchTestimonials();
+    console.log("FeedbackfromDB", FeedbackfromDB);
+  }, []);
+
   return (
     <div className="mt-12 bg-black-100 rounded-[20px]">
       <div className="w-3/4 m-auto">
