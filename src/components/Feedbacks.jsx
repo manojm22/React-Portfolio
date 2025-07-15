@@ -69,13 +69,13 @@ const Feedbacks = () => {
             {FeedbackfromDB.map((d) => (
               <motion.div
                 variants={textVariant()}
-                key={d.name}
+                key={d.Name}
                 className="bg-white mt-20 mb-20 h-[500px] text-black rounded-xl transform transition-transform duration-300 hover:scale-105"
               >
                 <div className=" h-56 rounded-t-xl bg-gradient-to-r from-green-500 to-blue-500 p-4 flex items-center justify-center">
                   <img
                     src={d.image}
-                    alt={d.name}
+                    alt={d.Name}
                     className="w-20 h-20 rounded-full"
                   />
                 </div>
@@ -84,20 +84,20 @@ const Feedbacks = () => {
                   className="flex flex-col justify-center items-center p-4 gap-4"
                 >
                   <h3 className="text-base sm:text-lg md:text-xl font-semibold limitline-heading">
-                    {d.name}
+                    {d.Name}
                   </h3>
                   <motion.div
                     variants={textVariant()}
                     className="text-xs sm:text-sm md:text-base text-gray-500 limitline-heading "
                   >
-                    {d.designation} at {d.company}
+                    {d.Designation} at {d.Company}
                   </motion.div>
                   <motion.p //direction, type, delay, duration
                     className="mt-4 text-secondary 
                   text-sm sm:text-base md:text-m max-w-3xl 
                   leading-[26px] sm:leading-[30px] limitline "
                   >
-                    {d.testimonial}
+                    {d.Comment}
                   </motion.p>
 
                   <button
