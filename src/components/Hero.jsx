@@ -1,7 +1,5 @@
 import { style } from "framer-motion/client";
-import React from "react";
 import { motion } from "framer-motion";
-import { ComputersCanvas } from "./canvas";
 
 const Hero = () => {
   return (
@@ -20,7 +18,6 @@ const Hero = () => {
           <p className="mt-2 text-xl text-gray-300">Welcome to My portfolio.</p>
         </div>
       </div>
-      <ComputersCanvas />
       <div
         className="absolute xs:bottom-10 bottom-32 
       w-full flex justify-center items-center"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { styles as style } from "../style";
 import { navLinks } from "../constants";
 import { Capture } from "../assets";

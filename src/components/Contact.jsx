@@ -1,8 +1,7 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import Wrapper from "../hoc";
 import { motion } from "framer-motion";
 import { styles } from "../style";
-import Earth from "./canvas/Earth";
 import { slideIn } from "../utils/motion";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";

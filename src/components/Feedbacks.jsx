@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import { styles } from "../style";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { fadeIn, textVariant } from "../utils/motion";
+import { textVariant } from "../utils/motion";
 import "../index.css"; // Ensure this path is correct based on your project structure
 import Wrapper from "../hoc";
 import Popup from "./Popup";

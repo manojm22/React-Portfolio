@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   About,
@@ -6,7 +5,6 @@ import {
   Experience,
   Feedbacks,
   Hero,
-  StarsCanvas,
   Navbar,
 } from "./components";
 

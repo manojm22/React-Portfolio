@@ -1,4 +1,3 @@
-import React from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -7,9 +6,8 @@ import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 import { styles } from "../style";
 import { experiences } from "../constants";
-import Wrapper, { wrapper } from "../hoc";
+import Wrapper from "../hoc";
 import { textVariant } from "../utils/motion";
-import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 const Experience = () => {
   return (
