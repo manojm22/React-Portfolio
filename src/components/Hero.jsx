@@ -1,23 +1,33 @@
-import { style } from "framer-motion/client";
+import { styles } from "../style";
 import { motion } from "framer-motion";
-
+import { Capture } from "../assets";
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
+    <div
+      /*  className="relative w-full h-screen mx-auto z-0
+    xl:mt-12 xl:flex-col
+    flex-col-reverse flex gap-50 overflow-hidden" */
+      className="h-screen flex sm:flex-col max-w-[1200px] mx-auto justify-between items-center relative px-4"
+    >
       <div
-        className={`${style.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
+        className={`${styles.paddingX} absolute inset-0 top-[120px] 
+        max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
         <div className="flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 square-full bg-[#915eff]" />
+          <div className="w-5 h-5 square-full bg-[#00ff0d]" />
           <div className="w-1 sm:h-30 h-40 violet-gradient" />
         </div>
         <div>
           <h1 className="text-6xl font-bold text-white">
-            Hi, I'm <span className="text-[#915eff]">Manoj M</span>
+            Hi, I'm <span className="text-[#00ff0d]">Manoj M</span>
           </h1>
           <p className="mt-2 text-xl text-gray-300">Welcome to My portfolio.</p>
         </div>
       </div>
+      <div className="h-full flex items-center self-end justify-center">
+        <img src={Capture} className="media max-h-[400px] w-auto" />
+      </div>
+
       <div
         className="absolute xs:bottom-10 bottom-32 
       w-full flex justify-center items-center"
@@ -39,7 +49,7 @@ const Hero = () => {
           </div>
         </a>
       </div>
-    </section>
+    </div>
   );
 };
 
