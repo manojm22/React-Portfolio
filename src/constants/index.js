@@ -1,11 +1,4 @@
-import {
-  backend,
-  creator,
-  node,
-  croppedfrontpage,
-  ltimindtree,
-  react,
-} from "../assets";
+import { node, ltimindtree, react } from "../assets";
 
 export const navLinks = [
   {

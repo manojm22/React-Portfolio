@@ -5,6 +5,7 @@ import {
   Experience,
   Feedbacks,
   Hero,
+  ScrollButton,
   Navbar,
 } from "./components";
 
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/feedbacks" element={<Feedbacks />} exact />
         <Route path="/contact" element={<Contact />} exact />
       </Routes>
+      <ScrollButton />
     </BrowserRouter>
   );
 }

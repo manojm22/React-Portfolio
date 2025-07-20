@@ -95,10 +95,10 @@
   );
 }
 
-.blue-red-gradient {
+.blue-white-gradient {
   background: #89f0ff; /* fallback for old browsers */
-  background: linear-gradient(90.13deg, #89f0ff 1.9%, #ff3b3b 97.5%);
-  background: -webkit-linear-gradient(90.13deg, #89f0ff 1.9%, #ff3b3b 97.5%);
+  background: linear-gradient(90.13deg, #89f0ff 1.9%, #ffffff 97.5%);
+  background: -webkit-linear-gradient(90.13deg, #89f0ff 1.9%, #ffffff 97.5%);
 }
 
 .orange-text-gradient {
